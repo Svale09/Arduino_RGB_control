@@ -36,7 +36,7 @@ fun ColorSlider(
         )
         Slider(
             value = sliderPosition,
-            onValueChange = {/*TODO*/},
+            onValueChange = {/*TODO choose if the value will be changed here or in the listeners*/},
             modifier = Modifier.padding(vertical = 10.dp)
         )
     }
