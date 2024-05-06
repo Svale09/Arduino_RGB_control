@@ -16,19 +16,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.arduinorgb.data.RGBValues
 
 @Composable
 fun ColorSlider(
+    updateRGBValues: (Float) -> Unit,
     colorName: String,
-    modifier: Modifier = Modifier
-){
+    modifier: Modifier = Modifier,
+) {
     var sliderPosition by remember {
         mutableStateOf(0f)
     }
 
     Column(
         horizontalAlignment = Alignment.Start,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
             .padding(horizontal = 30.dp)
     ) {
         Text(
@@ -37,15 +40,17 @@ fun ColorSlider(
         )
         Slider(
             value = sliderPosition,
-            onValueChange = {/*TODO choose if the value will be changed here or in the listeners*/},
-            modifier = Modifier.padding(top = 5.dp, bottom = 20.dp),
-
+            onValueChange = {
+                sliderPosition = it
+                updateRGBValues(sliderPosition)
+            },
+            modifier = Modifier.padding(top = 5.dp, bottom = 20.dp)
         )
     }
 }
 
-@Preview(showBackground = true,backgroundColor = 0xff00ff00)
+@Preview(showBackground = true, backgroundColor = 0xff00ff00)
 @Composable
-private fun PreviewColorSlider(){
-    ColorSlider(colorName = "Red")
+private fun PreviewColorSlider() {
+    ColorSlider(colorName = "Red", updateRGBValues = {})
 }
