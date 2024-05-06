@@ -29,15 +29,17 @@ fun ColorSlider(
     Column(
         horizontalAlignment = Alignment.Start,
         modifier = modifier.fillMaxWidth()
+            .padding(horizontal = 30.dp)
     ) {
         Text(
             text = colorName,
-            fontSize = 30.sp
+            fontSize = 25.sp
         )
         Slider(
             value = sliderPosition,
             onValueChange = {/*TODO choose if the value will be changed here or in the listeners*/},
-            modifier = Modifier.padding(vertical = 10.dp)
+            modifier = Modifier.padding(top = 5.dp, bottom = 20.dp),
+
         )
     }
 }

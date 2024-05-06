@@ -26,7 +26,7 @@ fun ColorPreview(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        horizontalArrangement = Arrangement.SpaceEvenly,
+        horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.fillMaxWidth()
     ) {
@@ -36,7 +36,6 @@ fun ColorPreview(
         )
         Box(
             modifier = Modifier
-                .padding(start = 40.dp)
                 .height(50.dp)
                 .width(100.dp)
                 .clip(RoundedCornerShape(25.dp))
