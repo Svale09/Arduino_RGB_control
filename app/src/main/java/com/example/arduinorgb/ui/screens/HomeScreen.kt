@@ -33,9 +33,9 @@ fun HomeScreen(
             fontSize = 30.sp,
             modifier = Modifier.padding(bottom = 50.dp)
         )
-        ColorSlider(colorName = "Red", updateRGBValues = {rgbValues.red = (it*255).toInt() }) //TODO fix the logic behind this function so it actually changes the values of RGBValues
-        ColorSlider(colorName = "Green", updateRGBValues = {rgbValues.green = (it*255).toInt() })
-        ColorSlider(colorName = "Blue", updateRGBValues = {rgbValues.blue = (it*255).toInt()  })
+        ColorSlider(colorName = "Red", updateRGBValues = {rgbValues = rgbValues.copy(red = (it*255).toInt()) }) //TODO fix the logic behind this function so it actually changes the values of RGBValues
+        ColorSlider(colorName = "Green", updateRGBValues = {rgbValues = rgbValues.copy(green = (it*255).toInt()) })
+        ColorSlider(colorName = "Blue", updateRGBValues = {rgbValues = rgbValues.copy(blue = (it*255).toInt())  })
         ColorPreview(rgbValues = rgbValues, modifier = Modifier.padding(top = 70.dp))
         Button(
             onClick = { /*TODO send values to arduino*/ },

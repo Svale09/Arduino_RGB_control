@@ -7,6 +7,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -25,7 +26,7 @@ fun ColorSlider(
     modifier: Modifier = Modifier,
 ) {
     var sliderPosition by remember {
-        mutableStateOf(0f)
+        mutableFloatStateOf(0f)
     }
 
     Column(
@@ -42,7 +43,7 @@ fun ColorSlider(
             value = sliderPosition,
             onValueChange = {
                 sliderPosition = it
-                updateRGBValues(sliderPosition)
+                updateRGBValues(it)
             },
             modifier = Modifier.padding(top = 5.dp, bottom = 20.dp)
         )
